@@ -1,0 +1,92 @@
+{
+    "books": [
+        {
+            "name": "The Alchemist",
+            "author": "Paulo Coelho",
+            "price": 264.00,
+            "rating": 5,
+            "available": false,
+            "publishedDate": "20-04-2021"
+        },
+        {
+            "name": "The Complete Novels of Sherlock Holmes",
+            "author": "Arthur Conan Doyle",
+            "price": 139.00,
+            "rating": 4,
+            "available": true,
+            "publishedDate": "10-09-2019"
+        },
+        {
+            "name": "Harry Potter and the Philosopher's Stone",
+            "author": "J.K. Rowling",
+            "price": 305.00,
+            "rating": 4,
+            "available": true,
+            "publishedDate": "01-05-2021"
+        },
+        {
+            "name": "The Time Machine",
+            "author": "H.G. Wells",
+            "price": 99.00,
+            "rating": 3,
+            "available": false,
+            "publishedDate": "17-08-2018"
+        },
+        {
+            "name": "Life is What You Make It",
+            "author": "Preeti Shenoy",
+            "price": 142.00,
+            "rating": 2,
+            "available": true,
+            "publishedDate": "17-08-2020"
+        },
+        {
+            "name": "Harry Potter and the Chamber of Secrets",
+            "author": "J.K.Rowling",
+            "price": 605.00,
+            "rating": 4,
+            "available": true,
+            "publishedDate": "20-04-2022"
+        },
+        {
+            "name": "Midnight's Children",
+            "author": "Salman Rushdie",
+            "price": 334.00,
+            "rating": 5,
+            "available": false,
+            "publishedDate": "10-02-2022"
+        },
+        {
+            "name": "Circe",
+            "author": "Madaline Miller",
+            "price": 469.00,
+            "rating": 5,
+            "available": true,
+            "publishedDate": "27-08-2021"
+        },
+        {
+            "name": "The Secret Garden",
+            "author": "Frances Hodgson Burnett",
+            "price": 125.00,
+            "rating": 3,
+            "available": false,
+            "publishedDate": "06-01-2018"
+        },
+        {
+            "name": "The Blue Umbrella",
+            "author": "Ruskin Bond",
+            "price": 95.00,
+            "rating": 4,
+            "available": true,
+            "publishedDate": "22-03-2018"
+        },
+        {
+            "name": "Auswander",
+            "author": "Bernhard Künzner",
+            "price": 1725.00,
+            "rating": 4,
+            "available": true,
+            "publishedDate": "15-03-2022"
+        }
+    ]
+}

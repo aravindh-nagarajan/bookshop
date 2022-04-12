@@ -1,0 +1,17 @@
+<div class="welcome">
+    <div 
+        *ngIf="email$ | async as email"
+    >
+        Welcome <span class="welcome__email">{{ email }}</span>
+
+        <button 
+            mat-icon-button 
+            color="primary" 
+            aria-label="Sign In"
+            title="Log out"
+            (click)="logoutUser()"
+        >
+            <mat-icon>logout</mat-icon>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="login">
+        <form 
+            class="login__form"
+            #form="ngForm"
+        >
+            <mat-form-field class="login__input">
+                <input 
+                    matInput
+                    placeholder="Enter your email" 
+                    type="email"
+                    name="email"
+                    required
+                    [(ngModel)]="emailAddress"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                />
+            </mat-form-field>
+
+            <button 
+                mat-icon-button 
+                color="primary" 
+                aria-label="Sign In"
+                title="{{ form.invalid ? 'Enter Valid Email' : 'Sign In' }}"
+                [disabled]="form.invalid"
+                (click)="signIn()"
+            >
+                <mat-icon>arrow_forward</mat-icon>
+            </button>
+        </form>
+</div>

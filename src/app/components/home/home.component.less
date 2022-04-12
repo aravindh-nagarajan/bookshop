@@ -1,0 +1,36 @@
+.home {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    height: 100%;
+
+    &__filters {
+        border-right: 1px solid var(--border-color);
+        padding: 10% 10px;
+    }
+
+    &__books {
+        display: grid;
+        grid-template-rows: 10% 90%;
+    }
+
+    &__welcome {
+        padding: 10px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    &__book-list {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 500px) {  
+    .home__filters {
+        display: none;
+    }
+}
+
+@media (min-width: 500px) {  
+    .home__filters {
+        display: block;
+    }
+}
