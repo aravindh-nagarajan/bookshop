@@ -3,12 +3,18 @@ import { createSelector } from '@ngrx/store';
 
 export const selectLoginState = (state: AppState) => state.login;
 
+/**
+ * Selector to get isLoggedIn.
+ */
 export const getIsLoggedIn = createSelector(
     selectLoginState,
-    login => login.isLoggedIn,
+    loginState => loginState.isLoggedIn,
 );
 
+/**
+ * Selector to get email.
+ */
 export const getEmail = createSelector(
     selectLoginState,
-    login => login.email,
+    loginState => loginState.email,
 );

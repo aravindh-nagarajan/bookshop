@@ -3,16 +3,18 @@ import {
     createReducer,
     on,
 } from '@ngrx/store';
-import { bookLoadSuccess, clearFilters } from '../actions/book.actions';
 
 import {
-    login, 
-    logout,
-} from '../actions/login.actions';
+    bookLoadSuccess, 
+    clearFilters
+} from '../actions/dashboard.actions';
 
-import { IAppState, IBookList, RatingBase } from '../../types/books.type';
+import {
+    IAppState, 
+    RatingBase,
+} from '../../types/books.type';
 
-export const booksFeatureKey = 'books';
+export const dashboardFeatureKey = 'dashboard';
 
 export const initialState: IAppState = {
     books: [],
@@ -21,14 +23,14 @@ export const initialState: IAppState = {
     },
 };
 
-const booksStateReducer = createReducer(
+const dashboardStateReducer = createReducer(
     initialState,
     on(bookLoadSuccess, (state, params) => 
         ({ ...state,
            books: params.books,
         })
     ),
-    on(clearFilters, (state, params) => 
+    on(clearFilters, (state) => 
         ({ ...state,
             filters: {
                 ratingBase: RatingBase.equal,
@@ -36,9 +38,11 @@ const booksStateReducer = createReducer(
         })
     ),
 );
-  
-export function reducer(state: IAppState | undefined, action: Action) {
-    return booksStateReducer(state, action);
-}
 
+/**
+ * Reducer for dashboard state.
+ */
+export function reducer(state: IAppState | undefined, action: Action) {
+    return dashboardStateReducer(state, action);
+}
   

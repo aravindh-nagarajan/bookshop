@@ -1,5 +1,6 @@
 <div class="filters">
     <div class="filters__label">Filter By</div>
+
     <form [formGroup]="filterForm">
         <mat-form-field>
             <mat-label>Title/Author</mat-label>
@@ -11,7 +12,7 @@
             />
         </mat-form-field>
 
-        <div class="filters__date">
+        <div class="filters__set">
             Date
             <div class="filters__group">
                 <mat-form-field class="filters__short">
@@ -26,7 +27,10 @@
                     />    
 
                     <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+                    <mat-datepicker-toggle
+                        matSuffix 
+                        [for]="fromPicker"
+                        ></mat-datepicker-toggle>
                     <mat-datepicker #fromPicker></mat-datepicker>                  
                 </mat-form-field>
                 
@@ -42,13 +46,16 @@
                     />
 
                     <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+                    <mat-datepicker-toggle 
+                        matSuffix 
+                        [for]="toPicker"
+                    ></mat-datepicker-toggle>
                     <mat-datepicker #toPicker></mat-datepicker>  
                 </mat-form-field>
             </div>
         </div>
 
-        <div class="filters__date">
+        <div class="filters__set">
             Price
             <div class="filters__group">
                 <mat-form-field class="filters__short">
@@ -79,7 +86,7 @@
             </div>
         </div>
 
-        <div class="filters__date">
+        <div class="filters__set">
             Rating
             <div class="filters__group">
                 <mat-form-field class="filters__short">
@@ -129,5 +136,7 @@
         color="accent"
         class="filters__clear"
         (click)="clearFilters()"
-    >Clear Filters</button>
+    >
+        Clear Filters
+    </button>
 </div>

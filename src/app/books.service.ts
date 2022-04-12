@@ -5,7 +5,6 @@ import { DateTime } from 'luxon';
 
 import { 
   IBook, 
-  IBookList, 
   IFilter, 
   RatingBase,
 } from './types/books.type';
@@ -27,7 +26,7 @@ export class BooksService {
    * Filter books based on conditions.
    */
   public filterBooks(filters: IFilter = {}): Observable<IBook[]> {
-    const source: IBookList = { 
+    const source = { 
       ...books,
     };
 

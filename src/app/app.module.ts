@@ -12,7 +12,7 @@ import { reducers } from './store/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { loginFeatureKey } from './store/reducers/login.reducer';
-import { BooksEffect } from './store/effects/books.effect';
+import { DashboardEffect } from './store/effects/dashboard.effect';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -24,12 +24,12 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { MatListModule } from '@angular/material/list';
 
 import {
-  LoginComponent,
-  HomeComponent,
-  WelcomeComponent,
-  BookListComponent,
   BookComponent,
-  FiltersComponent
+  BookListComponent,
+  FiltersComponent,
+  DashboardComponent,
+  LoginComponent,
+  WelcomeComponent,
 } from './components';
 
 export function localStorageSyncReducer(rootReducer: any) {
@@ -40,30 +40,30 @@ export function localStorageSyncReducer(rootReducer: any) {
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
+    DashboardComponent,
     WelcomeComponent,
     BookListComponent,
     BookComponent,
     FiltersComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    MatInputModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
+    BrowserModule,
     FormsModule,
-    ReactiveFormsModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatCardModule,
     MatDatepickerModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
     MatNativeDateModule,
     MatRadioModule,
     MatSelectModule,
     MatTooltipModule,
     OverlayModule,
-    MatListModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(reducers, {
       metaReducers: [localStorageSyncReducer],
       runtimeChecks: {
@@ -71,7 +71,7 @@ export function localStorageSyncReducer(rootReducer: any) {
         strictActionImmutability: true
       }
     }),
-    EffectsModule.forRoot([BooksEffect]),
+    EffectsModule.forRoot([DashboardEffect]),
   ],
   providers: [],
   bootstrap: [AppComponent]

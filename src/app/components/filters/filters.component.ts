@@ -1,22 +1,53 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {
+  Component, 
+  OnInit,
+} from '@angular/core';
+
+import {
+  FormControl,
+  FormGroup,
+} from '@angular/forms';
+
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { clearFilters, updateFilters } from '../../store/actions/book.actions';
+
+import {
+  clearFilters, 
+  updateFilters,
+} from '../../store/actions/dashboard.actions';
+
 import { AppState } from '../../store/reducers';
 import { RatingBase } from '../../types/books.type';
 
+/**
+ * @description Component to apply filters on book list.
+ * 
+ * @author Aravindh Nagarajan
+ */
 @Component({
   selector: 'filters',
   templateUrl: './filters.component.html',
   styleUrls: ['./filters.component.less']
 })
 export class FiltersComponent implements OnInit {
-  public filterForm: FormGroup;
+  /**
+   * filterForm formgroup instance.
+   */
+  public readonly filterForm: FormGroup;
 
-  public ratingBase = RatingBase;
+  /**
+   * RatingBase enum.
+   */
+  public readonly ratingBase = RatingBase;
 
+  /**
+   * Subscription to patch formgroup with store.
+   */
   private patchSubscription: Subscription | undefined;
+
+  /**
+   * Subscription to trigger filter event on form update.
+   */
   private filterUpdateSubscription: Subscription | undefined;
 
   constructor(private readonly store: Store<AppState>) {
@@ -32,8 +63,11 @@ export class FiltersComponent implements OnInit {
     });
    }
 
-  ngOnInit(): void {
-    this.patchSubscription = this.store.select(state => state.books.filters).subscribe(val => { console.log(val)
+  /**
+   * Create subscriptions to maintain filterform.
+   */
+  public ngOnInit(): void {
+    this.patchSubscription = this.store.select(state => state.dashboard.filters).subscribe(val => { console.log(val)
       this.filterForm.patchValue(val);
     });
 
@@ -43,7 +77,10 @@ export class FiltersComponent implements OnInit {
       });
   }
 
-  public ngDestroy() {
+  /**
+   * Unscribes subscriptions.
+   */
+  public ngDestroy(): void {
     if (this.filterUpdateSubscription) {
       this.filterUpdateSubscription.unsubscribe();
     }
@@ -53,8 +90,12 @@ export class FiltersComponent implements OnInit {
     }
   }
 
-  clearFilters() {
+  /**
+   * Resets filters.
+   */
+  public clearFilters(): void {
     this.store.dispatch(clearFilters());
+
     this.filterForm.reset({
       ratingBase: RatingBase.equal,
     });

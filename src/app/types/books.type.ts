@@ -1,4 +1,3 @@
-
 export interface IBook {
     name: string;
     author: string;
@@ -6,10 +5,6 @@ export interface IBook {
     rating: number;
     available: boolean;
     publishedDate: string;
-}
-
-export interface IBookList {
-    books: IBook[];
 }
 
 export interface IFilter {
@@ -23,11 +18,13 @@ export interface IFilter {
     ratingBase?: string;
 }
 
+// Interface for whole app state after login.
 export interface IAppState {
     filters: IFilter;
     books: IBook[];
 }
 
+// RatingBase enum/
 export enum RatingBase {
     equal = '=',
     leq = '<=',

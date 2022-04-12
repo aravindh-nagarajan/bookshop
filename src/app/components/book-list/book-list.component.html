@@ -4,9 +4,7 @@
         [book]="book"
     ></book>
 
-    <div 
-        *ngIf="!(bookList$ | async)?.length"
-    >
+    <div *ngIf="!(bookList$ | async)?.length">
         <p>No books found.</p>
         <p>Please try changing your filters</p>
     </div>

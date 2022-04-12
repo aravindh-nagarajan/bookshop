@@ -26,9 +26,10 @@ const loginStateReducer = createReducer(
     on(login, (state, params) => ({ ...state, isLoggedIn: true, email: params.email})),
     on(logout, state => ({ ...state, isLoggedIn: false, email: '' }))
 );
-  
+
+/**
+ * Reducer for login state.
+ */
 export function reducer(state: ILoginState | undefined, action: Action) {
     return loginStateReducer(state, action);
 }
-
-  
